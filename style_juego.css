@@ -1,0 +1,250 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url(img/GBA_map5_web.png);
+}
+
+html, body {
+    height: 100vh; /* Mantiene el tamaño del body igual al de la pantalla */
+}
+
+#contenedor_hori{
+    background-image: url(img/Subte_exp2.gif);
+    background-size: cover;
+    background-position: center 0vh;
+    background-attachment: fixed;
+}
+.linea {
+    width: 100%;
+    height: 2.5px;
+    background-color: black;
+    position: absolute;
+    top: 7.4%; /* Ajusta esto para que esté en la mitad del logo */
+    left: 0;
+    z-index: 0; /* Se mantiene detrás del logo */
+}
+
+.gif-container {
+    position: relative; /* Para que el logo se posicione dentro */
+    width: 33.33%;
+    height: 100vh;
+}
+
+.gif-container img:first-child {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin-top: 10%;
+}
+
+.logo_juego {
+    position: absolute; 
+    top: 85vh;  /* Ajusta según el tamaño del logo */
+    left: 72vw;
+    width: 25%; /* Ajusta el tamaño del logo */
+    z-index: 2;  /* Se mantiene sobre la línea */
+}
+
+#fondo_subte, #fondo_fijo_subte{
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+}
+
+
+.puntos {
+    position: relative;
+    width: 100%; 
+    max-width: 1920px; /* Ajusta según el tamaño de tu imagen */
+    margin: auto;
+}
+
+#contenedorCanvas {
+    text-align: center;
+  }
+  canvas {
+    display: block;
+    margin: auto;
+  }
+
+
+
+@keyframes aparecer {
+    0% { opacity: 0; transform: scale(0.5); } /* Invisible y pequeño */
+    100% { opacity: 1; transform: scale(1); } /* Visible y normal */
+}
+.punto {
+    position: absolute;
+    font-family: "Arial Narrow", Arial, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    background: white;
+    padding: 3px 6px;
+    border-radius: 50px;
+    -webkit-text-stroke: 1px rgb(231, 59, 60);; /* Borde negro */
+    color:  rgb(231, 59, 60); /* Borde negro */;
+    opacity: 0; /* Inicialmente invisible */
+    animation: aparecer 1s ease-out forwards;
+    animation-delay: 2.3s; /* Retraso de 3 segundos */
+}
+
+
+.punto:hover {
+
+    color: white; /* Asegura que el texto sea visible */
+    background: rgba(255, 255, 255, 0.9); /* Fondo con ligera transparencia */
+    border: 1px solid black; /* Borde negro al marco */
+    -webkit-text-stroke: 1px rgb(255, 94, 94); /* Borde negro */
+    color: rgb(255, 94, 94);;
+}
+/* Ubicar cada texto en su respectiva punta */
+.punto1 { top: 23vh; left: 44vw; }  
+.punto2 { top: 22.5vh; left: 72.5vw; }  
+.punto3 { top: 49.3vh; left: 76vw; }  
+.punto4 { top: 86.8vh; left: 59vw; }  
+.punto5 { top: 73vh; left: 83.5vw; }  
+.punto6 { top: 86.8vh; left: 45.5vw;}  
+.punto7 { top: 80vh; left: 90vw;}  
+
+#barra_juego{
+    position: absolute;
+    top: 90vh;  /* Ajusta según el tamaño del logo */
+    left: 96.8vw;
+    width: 100%; /* Ajusta el tamaño del logo */
+    z-index: 2;  /* Se mantiene sobre la línea */
+    transition: left 1.5s ease-out; /* Transición para mover la barra */
+}
+
+#barra_juego:hover{
+    left: 70vw;
+
+}
+
+#contenedor_ver{
+    display: none;
+}
+
+
+
+
+/* Para pantallas menores a 768px (ejemplo: móviles) */
+@media (max-width: 1000px) {
+   
+         body {
+        background-image: url(img/GBA_map5_responsive2_web.png);
+        background-size: cover;
+        background-position: center; /* Ajusta la imagen de fondo */
+        background-attachment: fixed;
+    }
+    
+    /* Contenedor horizontal oculto en móviles */
+    #contenedor_hori {
+        display: none;
+    }
+
+    /* Contenedor vertical visible en móviles */
+    #contenedor_ver {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh; /* Asegura que ocupe toda la pantalla */
+        width: 100%;
+        min-height: 100vh;
+        overflow: hidden; /* Previene scroll extra */
+        background-image: url(img/Subte_resp_exp1.gif);
+        background-size: cover;
+        background-position: center top;
+        background-attachment: fixed;
+    }
+
+    /* Estilos para el logo */
+    .logo_juego {
+        position: absolute; 
+        transform-origin:center ;
+        top: 90%;  
+        width: 70%; 
+        left: 3%;
+        z-index: 1; /* Se mantiene sobre la línea */
+    }
+
+    /* Estilos para el cubo */
+    .cubo {
+        position: absolute; 
+        top: -32%; /* Ajusta la distancia desde abajo */
+        width: 100%; 
+        z-index: 0; /* Se mantiene detrás de otros elementos */
+    }
+
+    .gif_piece {
+        position: absolute; 
+        width: 60vw; /* Escala al ancho de la pantalla */
+        height: auto; /* Mantiene la proporción */
+        object-fit: cover;
+        top:63vh; /* Posiciona en el borde superior */
+        left: -8%; /* Centra el punto de rotación */
+        transform-origin: top ; /* Ajusta el origen de la transformación */
+        z-index: 0;
+    }
+
+    .puntos{
+        z-index: 3;     
+        width: 100%; 
+        margin-top: 0%;
+}
+
+    .punto {
+        position: absolute;
+        font-family: "Arial Narrow", Arial, sans-serif;
+
+        font-weight: bold;
+        text-decoration: none;
+        padding: 0px 6px;
+        border-radius: 50px;
+        -webkit-text-stroke: 0px rgb(0, 0, 0); /* Borde negro */
+        color:  rgb(0, 0, 0); /* Borde negro */;
+        opacity: 1; /* Inicialmente invisible */
+        animation: aparecer 0.5s ease-out forwards;
+        animation-delay: 2.5s;
+        background: rgba(255, 255, 255, 0.9); /* Fondo con ligera transparencia */
+        border: 1px solid black; /* Borde negro al marco */
+        padding: 3px 6px;
+        border-radius: 50px;
+    }
+
+    .punto1 { top: 30vh; left: 10vw; font-size: 120%;} 
+    .punto2 { top: 17vh; left: 7vw; font-size: 120%;}  
+    .punto3 { top: 48.5vh; left: 5vw; font-size: 120%;}  
+    .punto4 { top: 66vh; left: 70vw;  font-size: 110%;}  
+    .punto5 { top: 45vh; left: 70vw;font-size: 120%; }  
+    .punto6 { top: 80vh; left: 68vw; font-size: 110%;}
+    .punto7 { top: 20vh; left: 70vw;font-size: 200%; } 
+
+
+
+    .title{
+        position: absolute;
+        font-family: "Arial Narrow", Arial, sans-serif;
+        font-size: 100%;
+
+        text-decoration: none;
+        padding: 0px 10px;
+        margin-right: 2%;
+        border-radius: 50px;
+        -webkit-text-stroke: 0px rgb(0, 0, 0); /* Borde negro */
+        color:  rgb(0, 0, 0); /* Borde negro */;
+        background: rgba(255, 255, 255, 0.37); /* Fondo con ligera transparencia */
+    top: 11.5vh; left: 55%; 
+
+  
+    }
+
+    }
+
