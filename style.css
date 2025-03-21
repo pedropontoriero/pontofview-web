@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'Narrow';
+    src: url('fonts/arialNarrow.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,7 +12,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Narrow';
     background-image: url(img/background_moron_web2.jpg.png);
 }
 
@@ -238,7 +245,7 @@ html, body {
     }
 
     .puntos{
-        margin-top: -35%;
+        margin-top: -40%;
 }
 
     .punto {
@@ -324,14 +331,14 @@ html, body {
         .title {
             align-self: flex-end; /* Alinea el título a la derecha */
             top: 20vh;
-            font-family: "Arial Narrow", Arial, sans-serif;
+            font-family: 'Narrow', sans-serif;
             font-size: 1.2rem;
             text-align: right;
             
             border-radius: 50px;
             -webkit-text-stroke: 0px rgb(0, 0, 0);
             color: rgb(0, 0, 0);
-            background: rgba(255, 255, 255); /* Fondo semi-transparente */
+           
         }
         
     
