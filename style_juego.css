@@ -11,6 +11,8 @@ body {
 
 html, body {
     height: 100vh; /* Mantiene el tamaño del body igual al de la pantalla */
+    overflow: hidden;
+    overflow-x: hidden;
 }
 
 #contenedor_hori{
@@ -138,7 +140,7 @@ html, body {
 @media (max-width: 1000px) {
    
          body {
-        background-image: url(img/GBA_map5_responsive2_web.png);
+        background-image: url(img/GBA_map5_responsive3_web.png);
         background-size: cover;
         background-position: center; /* Ajusta la imagen de fondo */
         background-attachment: fixed;
@@ -169,8 +171,9 @@ html, body {
     .logo_juego {
         position: absolute; 
         transform-origin:center ;
-        top: 90%;  
-        width: 70%; 
+        top: 93%;  
+        bottom: 7%;  
+        width: 50%; 
         left: 3%;
         z-index: 1; /* Se mantiene sobre la línea */
     }
